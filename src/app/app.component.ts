@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ROUTES_PATHS } from 'src/shared/constants/routes.route';
+import { ROUTES_PATHS } from 'src/app/shared/constants/routes.route';
 
 @Component({
   selector: 'app-root',
