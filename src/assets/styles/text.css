@@ -1,0 +1,60 @@
+@font-face {
+  font-family: roboto;
+  src: url("../fonts/roboto-latin-400-normal.woff");
+}
+
+@font-face {
+  font-family: sourcehansanssc;
+  src: url("../fonts/SourceHanSansSC-Regular.woff");
+}
+
+@font-face {
+  font-family: impact;
+  src: url("../fonts/impact.woff");
+}
+
+@font-face {
+  font-family: napglobal;
+  src: url("../fonts/napglobal.woff2");
+}
+
+span,
+a {
+  color: var(--color-white);
+  font-size: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  --outline-size: 0.5px;
+  &.outline-black {
+    -webkit-text-fill-color: var(--color-white);
+    -webkit-text-stroke: var(--outline-size);
+    -webkit-text-stroke-color: var(--color-black);
+    -webkit-font-smoothing: antialiased;
+  }
+  &.outline-white {
+    -webkit-text-fill-color: var(--color-black);
+    -webkit-text-stroke: var(--outline-size);
+    -webkit-text-stroke-color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+h1,
+h2 {
+  font-family: impact, sourcehansanssc, roboto;
+  letter-spacing: 0.3rem;
+}
+
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3rem;
+}

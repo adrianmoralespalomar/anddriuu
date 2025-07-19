@@ -1,0 +1,13 @@
+:root {
+  --gap: 1rem;
+  --color-yellow: #ffff0b;
+  --color-yellow-hover: #d4d402;
+  --color-yellow-semi-transparent: #ffff0ba7;
+  --color-black: #1c1c1c;
+  --color-black-semi-transparent: #1c1c1c6b;
+  --color-white: #f9f9f9;
+  --color-gray: #afafaf;
+  --color-gray-semi-transparent: #afafafbb;
+  --color-blue-light: #63b1e2;
+  --color-blue-light-semi-transparent: #63b1e296;
+}

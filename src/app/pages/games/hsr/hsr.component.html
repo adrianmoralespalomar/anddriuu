@@ -1,3 +1,17 @@
-<p>
-  hsr works!
-</p>
+<main id="zenless-zone-zero-page">
+  <section class="copy-uid-section">
+    <div class="copy-uid-container">
+      <button class="transparent" (click)="onCopy()" [attr.aria-label]="'Copiar ' + value">
+        <span>UID:</span>
+        <span>{{ this.hsrUID }}</span>
+        <span> @if(isCopied){ ✅ } @else { 📋 } </span>
+      </button>
+      <span *ngIf="isCopied" class="copied-msg">¡Copiado!</span>
+    </div>
+  </section>
+
+  <section class="warps-per-patch-section">
+    <h2 class="section-title">Tiradas por Version</h2>
+    <iframe id="hsr-warps-per-patch" title="HSR Warps Per Patch" frameborder="0" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRIWjzFwAZZoBvKw2oiNaVpppI9atoV0wxuOjulKRJECrg_BN404d7LoKlHp8RMX8hegDr4b8jlHjYy/pubhtml"> </iframe>
+  </section>
+</main>

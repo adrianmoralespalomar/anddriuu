@@ -1,1 +1,48 @@
-{{ this.zzzUID }}
+<main id="zenless-zone-zero-page">
+  <section [id]="this.sections[0]" class="header">
+    <img src="../../../../assets/images/logo_zzz.webp" alt="Imagen Ultimas tiradas de ZZZ" />
+    <h1 class="outline-white">ZENLESS ZONE ZERO</h1>
+    <h2 class="outline-white">V 2.1</h2>
+  </section>
+
+  <section [id]="this.sections[1]" class="copy-uid-section">
+    <div class="copy-uid-container">
+      <button class="transparent" (click)="onCopy()" [attr.aria-label]="'Copiar ' + value">
+        <span>UID:</span>
+        <span>{{ this.zzzUID }}</span>
+        <span> @if(isCopied){ ✅ } @else { 📋 } </span>
+      </button>
+    </div>
+  </section>
+
+  <section [id]="this.sections[2]" class="latest-videos">
+    <div class="section-title">
+      <h2>Últimos Videos</h2>
+    </div>
+
+    <div class="section-content">
+      <div class="video-card" *ngFor="let video of youtubeVideos" (click)="goToVideo(video.videoId)">
+        <img [src]="video.thumbnail" [alt]="video.title" />
+        <h3>{{ video.title }}</h3>
+      </div>
+    </div>
+  </section>
+
+  <section [id]="this.sections[3]" class="latest-pulls-section">
+    <div class="section-title">
+      <h2>Historial de Tiradas</h2>
+    </div>
+    <div class="section-content">
+      <img src="../../../../assets/images/latest_pulls_zzz.webp" alt="Imagen Ultimas tiradas de ZZZ" />
+    </div>
+  </section>
+
+  <section [id]="this.sections[4]" class="warps-per-patch-section">
+    <div class="section-title">
+      <h2>Tiradas por Version</h2>
+    </div>
+    <div class="section-content">
+      <iframe id="zzz-warps-per-patch" title="ZZZ Warps Per Patch" frameborder="0" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTiSx8OSyx-BZktnpT-fh_pQHjjkD8q3sp3Csy2aOI-8CV_QroqxzhhNjiCZNV4IdzhyK3xbipZn9WD/pubhtml"> </iframe>
+    </div>
+  </section>
+</main>

@@ -1,3 +1,27 @@
-<p>
-  header works!
-</p>
+<header [class.scrolled]="isScrolled">
+  <section class="header-container">
+    <div class="logo">
+      <a [routerLink]="routes.HOME_PATH"><img src="../../../../assets/images/logo_anddriuu.webp" alt="Imagen Logotipo Anddriuu" /></a>
+    </div>
+
+    <!-- Botones en escritorio -->
+    <nav class="nav-links">
+      <div class="dropdown">
+        <button class="menu-button">Games</button>
+        <div class="dropdown-content">
+          <a [routerLink]="routes.ZENLESS_ZONE_ZERO">ZZZ</a>
+          <a [routerLink]="routes.HONKAI_STAR_RAIL">HSR</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Botón hamburguesa en móvil -->
+    <button class="hamburger" (click)="toggleMobileMenu()">☰</button>
+  </section>
+
+  <!-- Menú lateral móvil -->
+  <div class="mobile-menu" [class.open]="isMenuOpen">
+    <a (click)="closeMobileMenu()" [routerLink]="routes.ZENLESS_ZONE_ZERO">ZZZ</a>
+    <a (click)="closeMobileMenu()" [routerLink]="routes.HONKAI_STAR_RAIL">HSR</a>
+  </div>
+</header>
