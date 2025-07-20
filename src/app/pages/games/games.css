@@ -52,7 +52,7 @@ main {
       }
     }
     &.copy-uid-section {
-      margin-bottom: 30rem;
+      margin-bottom: 20rem;
       @media (max-width: 768px) {
         margin-bottom: 40rem;
       }
@@ -150,7 +150,24 @@ main {
         box-shadow: inset 0px 0px 0px 7px var(--color-black), inset 0px 0px 0px 20px var(--color-blue-light), inset 0px 0px 0px 24px var(--color-black), 10px 10px 12px 0px rgba(0, 0, 0, 0.5);
         iframe {
           min-height: 45rem;
-          width: 7100%;
+          width: 100%;
+          border-radius: var(--border-radius);
+        }
+      }
+    }
+    &.showcase-section {
+      div.section-title {
+        background: var(--color-red);
+        border: 5px solid var(--color-black);
+        box-shadow: 5px 5px 10px var(--color-black);
+      }
+      div.section-content {
+        display: flex;
+        background-color: var(--color-red-semi-transparent);
+        box-shadow: inset 0px 0px 0px 7px var(--color-black), inset 0px 0px 0px 20px var(--color-red), inset 0px 0px 0px 24px var(--color-black), 10px 10px 12px 0px rgba(0, 0, 0, 0.5);
+        iframe {
+          min-height: 45rem;
+          width: 100%;
           border-radius: var(--border-radius);
         }
       }

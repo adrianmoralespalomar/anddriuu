@@ -9,7 +9,7 @@ export class YoutubeService {
   private apiKey = 'AIzaSyD_U071NlLDHUrTl-0WQEXLw2plu4_jnb4';
   private andriuChannelId = 'UCpP1Ki0BltI_ecCXWVus_nA';
   private baseUrl = 'https://www.googleapis.com/youtube/v3';
-  private areMocksAvailable = false;
+  private areMocksAvailable = true;
   constructor(private http: HttpClient) {}
 
   getLatestVideos(searchQuery?: string, maxResults = 5) {

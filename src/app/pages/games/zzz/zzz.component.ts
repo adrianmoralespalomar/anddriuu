@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { BackgroundService } from 'src/app/services/background.service';
+import { PullsService } from 'src/app/services/pulls.service';
 import { YoutubeService, YoutubeVideo } from 'src/app/services/youtube.service';
 import { scrollFadeIn } from 'src/app/shared/animations/scroll-fade-in-left';
 import { BACKGROUND_ZZZ_PATH } from 'src/app/shared/constants/images';
@@ -20,12 +21,14 @@ export class ZzzComponent implements OnInit {
   @Input() value = '';
   private readonly backgroundService = inject(BackgroundService);
   private readonly youtubeService = inject(YoutubeService);
+  private readonly pullsService = inject(PullsService);
   protected isCopied = false;
   protected readonly zzzUID = ZENLESS_ZONE_ZERO_UID;
   protected youtubeVideos: YoutubeVideo[] | undefined = undefined;
 
   ngOnInit() {
     this.getLatestVideos();
+    this.getLatestPulls(); // Es un UID de test, aandriu deberia hacerlo publico para poder visualizarlo
     this.changeBackgroundImage();
     this.initAnimations();
   }
@@ -34,6 +37,14 @@ export class ZzzComponent implements OnInit {
     this.youtubeService.getLatestVideos('| Zenless Zone Zero').subscribe({
       next: (resp) => {
         this.youtubeVideos = resp;
+      },
+    });
+  }
+
+  getLatestPulls(): void {
+    this.pullsService.getLatestPulls().subscribe({
+      next: (resp) => {
+        console.log(resp);
       },
     });
   }

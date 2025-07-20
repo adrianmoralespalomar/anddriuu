@@ -8,9 +8,7 @@
   <section [id]="'copy-uid'" class="copy-uid-section">
     <div class="copy-uid-container">
       <button class="transparent" (click)="onCopy()" [attr.aria-label]="'Copiar ' + value">
-        <span>UID:</span>
-        <span>{{ this.zzzUID }}</span>
-        <span> @if(isCopied){ ✅ } @else { 📋 } </span>
+        <span>UID Anddriuu: {{ this.zzzUID }} @if(isCopied){ ✅ } @else { 📋 } </span>
       </button>
     </div>
   </section>
@@ -43,6 +41,15 @@
     </div>
     <div class="section-content">
       <iframe id="zzz-warps-per-patch" title="ZZZ Warps Per Patch" frameborder="0" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTiSx8OSyx-BZktnpT-fh_pQHjjkD8q3sp3Csy2aOI-8CV_QroqxzhhNjiCZNV4IdzhyK3xbipZn9WD/pubhtml"> </iframe>
+    </div>
+  </section>
+
+  <section [id]="'showcase'" class="showcase-section fade-in-right">
+    <div class="section-title">
+      <h2>Showcase</h2>
+    </div>
+    <div class="section-content">
+      <iframe id="zzz-showcase" title="ZZZ Showcase" frameborder="0" src="https://enka.network/zzz/1500713525/"> </iframe>
     </div>
   </section>
 </main>

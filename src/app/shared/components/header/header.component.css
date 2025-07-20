@@ -27,8 +27,10 @@ header {
           border: none;
           cursor: pointer;
           padding: 0.25rem;
-          font-size: 2rem;
-          color: var(--color-white);
+          span {
+            font-size: 2rem;
+            color: var(--color-white);
+          }
         }
         .dropdown-content {
           display: none;
