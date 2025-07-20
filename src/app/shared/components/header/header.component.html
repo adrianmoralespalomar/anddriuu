@@ -9,8 +9,8 @@
       <div class="dropdown">
         <button class="menu-button">Games</button>
         <div class="dropdown-content">
-          <a [routerLink]="routes.ZENLESS_ZONE_ZERO">ZZZ</a>
-          <a [routerLink]="routes.HONKAI_STAR_RAIL">HSR</a>
+          <a [routerLink]="routes.ZENLESS_ZONE_ZERO">Zenless Zone Zero</a>
+          <a [routerLink]="routes.HONKAI_STAR_RAIL">Honkai Star Rail</a>
         </div>
       </div>
     </nav>
@@ -20,8 +20,8 @@
   </section>
 
   <!-- Menú lateral móvil -->
-  <div class="mobile-menu" [class.open]="isMenuOpen">
+  <section class="mobile-menu" [class.open]="isMenuOpen">
     <a (click)="closeMobileMenu()" [routerLink]="routes.ZENLESS_ZONE_ZERO">ZZZ</a>
     <a (click)="closeMobileMenu()" [routerLink]="routes.HONKAI_STAR_RAIL">HSR</a>
-  </div>
+  </section>
 </header>

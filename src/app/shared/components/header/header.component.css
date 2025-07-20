@@ -10,21 +10,25 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0.75rem 1rem;
+
     div.logo a img {
-      width: auto;
-      height: 8rem;
+      width: 8rem;
+      height: auto;
     }
-    .nav-links {
+
+    nav.nav-links {
       display: flex;
       gap: 1rem;
       .dropdown {
         position: relative;
+
         .menu-button {
           background: none;
           border: none;
           cursor: pointer;
-          font-size: 1rem;
-          color: #ffffff;
+          padding: 0.25rem;
+          font-size: 2rem;
+          color: var(--color-white);
         }
         .dropdown-content {
           display: none;
@@ -43,14 +47,19 @@ header {
         }
 
         &:hover .dropdown-content {
-          display: block;
+          animation: showDropdownContent 1s;
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          width: max-content;
         }
       }
       @media (max-width: 768px) {
         display: none;
       }
     }
-    .hamburger {
+
+    button.hamburger {
       display: none;
       background: none;
       font-size: 1.5rem;
@@ -91,5 +100,16 @@ header {
     .nav-links .dropdown .menu-button {
       color: rgb(2, 2, 104);
     }
+  }
+}
+
+@keyframes showDropdownContent {
+  from {
+    display: none;
+    opacity: 0;
+  }
+  to {
+    display: flex;
+    opacity: 1;
   }
 }

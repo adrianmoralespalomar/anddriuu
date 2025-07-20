@@ -2,9 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { BackgroundService } from 'src/app/services/background.service';
 import { YoutubeService, YoutubeVideo } from 'src/app/services/youtube.service';
+import { scrollFadeIn } from 'src/app/shared/animations/scroll-fade-in-left';
 import { BACKGROUND_ZZZ_PATH } from 'src/app/shared/constants/images';
 import { ZENLESS_ZONE_ZERO_UID } from 'src/app/shared/constants/uid';
 import { copyToClipboard } from 'src/app/shared/utils/copy-to-clipboard';
+import { openYoutubeVideo } from 'src/app/shared/utils/open-yt-video';
+import { headerAnimation } from './animations/header';
 
 @Component({
   selector: 'app-zzz',
@@ -19,21 +22,31 @@ export class ZzzComponent implements OnInit {
   private readonly youtubeService = inject(YoutubeService);
   protected isCopied = false;
   protected readonly zzzUID = ZENLESS_ZONE_ZERO_UID;
-  protected sections = ['header-zzz', 'copy-uid', 'latest-videos', 'latest-pulls', 'warps-per-patch'];
   protected youtubeVideos: YoutubeVideo[] | undefined = undefined;
 
   ngOnInit() {
+    this.getLatestVideos();
+    this.changeBackgroundImage();
+    this.initAnimations();
+  }
+
+  getLatestVideos(): void {
     this.youtubeService.getLatestVideos('| Zenless Zone Zero').subscribe({
       next: (resp) => {
         this.youtubeVideos = resp;
       },
     });
-    this.backgroundService.setBackgroundImage(BACKGROUND_ZZZ_PATH);
   }
 
-  goToVideo(videoId: string) {
-    window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+  changeBackgroundImage = (): void => this.backgroundService.setBackgroundImage(BACKGROUND_ZZZ_PATH);
+
+  initAnimations(): void {
+    headerAnimation();
+    scrollFadeIn('.fade-in-left', 'left');
+    scrollFadeIn('.fade-in-right', 'right');
   }
+
+  goToVideo = (videoId: string) => openYoutubeVideo(videoId);
 
   async onCopy() {
     const success = await copyToClipboard(ZENLESS_ZONE_ZERO_UID);

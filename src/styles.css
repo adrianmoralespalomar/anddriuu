@@ -10,6 +10,8 @@ body {
   min-height: 100%;
   font-family: napglobal, sourcehansanssc, roboto;
   scroll-behavior: smooth !important;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-purple) var(--color-white);
 }
 
 *,
@@ -35,4 +37,5 @@ html {
   min-height: 100vh;
   overflow: auto;
   z-index: 1;
+  padding-bottom: 2rem;
 }

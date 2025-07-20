@@ -44,6 +44,12 @@ h6 {
     -webkit-text-stroke-color: var(--color-white);
     -webkit-font-smoothing: antialiased;
   }
+  &.outline-blue {
+    -webkit-text-fill-color: var(--color-white);
+    -webkit-text-stroke: var(--outline-size);
+    -webkit-text-stroke-color: var(--color-blue-semi);
+    -webkit-font-smoothing: antialiased;
+  }
 }
 
 h1,
@@ -54,7 +60,13 @@ h2 {
 
 h1 {
   font-size: 4rem;
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
 }
 h2 {
   font-size: 3rem;
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 }

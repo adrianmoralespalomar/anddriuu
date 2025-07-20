@@ -1,6 +1,18 @@
 @import "../games.css";
 
-main#zenless-zone-zero-page {
-  --main-color-yellow: #d8fa00;
-  --main-color-black: #1c1c1c;
+main {
+  section {
+    &.copy-uid-section {
+      div.copy-uid-container button {
+        background-color: var(--color-black);
+        border: 2px solid var(--color-white);
+        span {
+          color: var(--color-white);
+        }
+        &:hover {
+          background-color: var(--color-black-hover);
+        }
+      }
+    }
+  }
 }
