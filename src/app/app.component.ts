@@ -27,6 +27,6 @@ export class AppComponent {
     document.title = '¡Lil Gooner vuelve! 😱';
   }
   @HostListener('window:focus') async onFocus() {
-    document.title = this.currenTitle;
+    document.title = this.currenTitle.includes('localhost') ? 'Anddriuu' : this.currenTitle;
   }
 }

@@ -7,7 +7,7 @@ import { BACKGROUND_HSR_PATH } from 'src/app/shared/constants/images';
 import { HONKAI_STAR_RAIL_UID } from 'src/app/shared/constants/uid';
 import { copyToClipboard } from 'src/app/shared/utils/copy-to-clipboard';
 import { openYoutubeVideo } from 'src/app/shared/utils/open-yt-video';
-import { headerAnimation } from '../zzz/animations/header';
+import { headerAnimation } from '../animations/header';
 
 @Component({
   selector: 'app-hsr',

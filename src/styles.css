@@ -34,7 +34,7 @@ html {
 
 .main-content {
   position: relative;
-  min-height: 100vh;
+  min-height: 85vh;
   overflow: auto;
   z-index: 1;
   padding-bottom: 2rem;

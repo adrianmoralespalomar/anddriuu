@@ -1,0 +1,80 @@
+main#home-page {
+  position: static;
+  section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    right: 5rem;
+    top: 0;
+    gap: 2rem;
+
+    img#logo-image {
+      width: 15rem;
+      height: auto;
+    }
+    img#logo-image-label {
+      width: 30rem;
+      height: auto;
+    }
+    div.sns-container {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      a.sns-link {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        &:hover {
+          transform: scale(1.1);
+        }
+        &.sns-twitch {
+          background-color: #954cff;
+          border: 2px solid var(--color-white);
+          &:hover {
+            background-color: #7039c1;
+          }
+        }
+        &.sns-youtube {
+          background-color: #ff0808;
+          border: 2px solid var(--color-white);
+          &:hover {
+            background-color: #af0505;
+          }
+        }
+        &.sns-discord {
+          background-color: #5d6af2;
+          border: 2px solid var(--color-white);
+          &:hover {
+            background-color: #464fb3;
+          }
+        }
+        &.sns-twitter {
+          background-color: var(--color-black);
+          border: 2px solid var(--color-white);
+          &:hover {
+            background-color: var(--color-black-hover);
+          }
+        }
+        &.sns-tiktok {
+          background-color: var(--color-black);
+          border: 2px solid var(--color-white);
+          &:hover {
+            background-color: var(--color-black-hover);
+          }
+        }
+        div.svg-wrapper {
+          width: 2rem;
+          color: var(--color-white);
+        }
+        span {
+          --text-size: 1.5rem;
+          font-size: var(--text-size);
+          line-height: var(--text-size);
+        }
+      }
+    }
+  }
+}

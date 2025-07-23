@@ -11,6 +11,11 @@ export const ROUTES: Routes = [
   {
     title: `${GENERAL_TITLE} | Zenless Zone Zero`,
     path: ROUTES_PATHS.ZENLESS_ZONE_ZERO,
+    loadComponent: () => import('./pages/games/zzz-old/zzz.component').then((x) => x.ZzzComponent),
+  },
+  {
+    title: `${GENERAL_TITLE} | Zenless Zone Zero`,
+    path: ROUTES_PATHS.ZENLESS_ZONE_ZERO.concat('-new'),
     loadComponent: () => import('./pages/games/zzz/zzz.component').then((x) => x.ZzzComponent),
   },
   {

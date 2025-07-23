@@ -6,12 +6,20 @@ main {
   margin-right: auto;
   max-width: 60vw;
   padding: 1rem;
+
   @media (max-width: 1280px) {
     max-width: 80vw;
   }
   @media (max-width: 768px) {
     gap: calc(var(--gap) * 5);
     max-width: 100vw;
+  }
+
+  div.nav-section {
+    position: fixed;
+    top: calc(100% - 80%);
+    right: 1rem;
+    z-index: 1000;
   }
 
   section {
@@ -58,10 +66,7 @@ main {
       }
       div.copy-uid-container button {
         background-color: var(--color-white);
-        border-radius: 15px;
-        border: 2px solid var(--color-black);
         font-size: 2rem;
-        transition: all 0.3s;
         span {
           color: var(--color-black);
           font-size: 1.5rem;
@@ -111,6 +116,7 @@ main {
           img {
             width: 100%;
             height: auto;
+            object-fit: cover;
           }
           h3 {
             font-size: 16px;

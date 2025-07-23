@@ -1,9 +1,13 @@
-button {
+button,
+a.anchor-button {
   padding: 1rem;
   cursor: pointer;
   font-weight: bold;
   color: black;
-  border: 0;
+  text-decoration: none;
+  border-radius: 1rem;
+  transition: all 0.3s;
+  border: 2px solid var(--color-black);
   &.transparent {
     background-color: transparent;
     color: white;
