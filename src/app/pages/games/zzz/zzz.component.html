@@ -6,8 +6,20 @@
     <img src="../../../../assets/images/logo_hsr.webp" />
     <img src="../../../../assets/images/logo_zzz.webp" />
   </section>
-  <section class="game-sections">
-    <div class="container"></div>
+  <section class="game-section">
+    <article class="game-sections-container">
+      <div class="wheel-container">
+        <span *ngFor="let item of items; let i = index" #itemRef class="wheel-item" (click)="onItemClick(item)">
+          {{ item }}
+        </span>
+      </div>
+    </article>
+    <article class="game-section-container">
+      <img class="image-game-section-content" src="assets/images/ben_bigger.webp" alt="Imagen Ultimas tiradas de Zenless Zone Zero" loading="lazy" />
+      <div class="game-section-content">
+        <!-- <img src="assets/images/latest_pulls_zzz.webp" alt="Imagen Ultimas tiradas de Zenless Zone Zero" loading="lazy" /> -->
+        <iframe id="zzz-warps-per-patch" title="ZZZ Warps Per Patch" frameborder="0" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTiSx8OSyx-BZktnpT-fh_pQHjjkD8q3sp3Csy2aOI-8CV_QroqxzhhNjiCZNV4IdzhyK3xbipZn9WD/pubhtml"></iframe>
+      </div>
+    </article>
   </section>
-  <section class="game-section-content"></section>
 </main>

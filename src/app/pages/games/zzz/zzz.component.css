@@ -1,11 +1,9 @@
 main#zzz-page {
-  display: grid;
-  grid-template-areas:
-    "header header header"
-    "sidebar content content";
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   section.games-section {
-    background-color: white;
-    grid-area: header;
+    background-color: transparent;
     display: flex;
     gap: 1rem;
     justify-content: center;
@@ -25,18 +23,74 @@ main#zzz-page {
       }
     }
   }
-  section.game-sections {
-    background-color: red;
-    grid-area: sidebar;
-    div.container {
+  section.game-section {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    height: 60vh;
+    article.game-sections-container {
+      flex: 1;
       width: 100%;
-      height: 65vh;
-      background-color: yellow;
-      clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+      height: 100%;
+      background-image: url("../../../../assets/images/background_game_sections_container.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-position: center;
+      /*Use this website to generate https://yqnn.github.io/svg-path-editor/*/
+      /* clip-path: path("M 0 468 L 0 780 L 200 780 C 240 780 260 748.8 320 655.2 C 500 374.4 560 280.8 655 120 C 671 90 682 79 676 42 C 665 4 639 0 607 0 L 0 0 L 0 468");*/
+    }
+    article.game-section-container {
+      flex: 3;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-position: center;
+      background-image: url("../../../../assets/images/background_game_section_container.png");
+      /*Use this website to generate https://yqnn.github.io/svg-path-editor/*/
+      /*clip-path: path("M 2445 570 L 2445 825 L 59 832 C 12 812 54 745 67 715 C 104 643 234 350 250 312 C 307 184 377 7 446 -1 L 2448 3 L 2445 452");*/
+      img.image-game-section-content {
+        position: absolute;
+        left: -14rem;
+        top: 3rem;
+        z-index: 2;
+        height: 44rem;
+        width: 50rem;
+      }
+      div.game-section-content {
+        display: flex;
+        width: 70%;
+        position: absolute;
+        border-radius: 3rem;
+        overflow: hidden;
+        top: 2rem;
+        padding: 0rem;
+        height: 90%;
+        right: 2rem;
+        background: white;
+        iframe {
+          width: 100%;
+        }
+      }
     }
   }
-  section.game-section-content {
-    background-color: green;
-    grid-area: content;
-  }
+}
+
+.wheel-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+
+.wheel-item {
+  color: black;
+  margin: 15px 10px;
+  font-size: 2rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: left;
+  opacity: 0.6;
+  cursor: pointer;
 }
