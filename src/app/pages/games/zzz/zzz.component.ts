@@ -3,6 +3,12 @@ import { Component, ElementRef, HostListener, inject, OnInit, QueryList, ViewChi
 import { DomSanitizer } from '@angular/platform-browser';
 import gsap from 'gsap';
 import { BackgroundService } from 'src/app/services/background.service';
+import { PullsService } from 'src/app/services/pulls.service';
+import { YoutubeService, YoutubeVideo } from 'src/app/services/youtube.service';
+import { ZENLESS_ZONE_ZERO_UID } from 'src/app/shared/constants/uid';
+import { copyToClipboard } from 'src/app/shared/utils/copy-to-clipboard';
+import { openUrl } from 'src/app/shared/utils/open-url';
+import { openYoutubeVideo } from 'src/app/shared/utils/open-yt-video';
 @Component({
   selector: 'app-zzz',
   standalone: true,
@@ -12,15 +18,27 @@ import { BackgroundService } from 'src/app/services/background.service';
 })
 export class ZzzComponent implements OnInit {
   private readonly backgroundService = inject(BackgroundService);
+  private readonly youtubeService = inject(YoutubeService);
+  private readonly pullsService = inject(PullsService);
   private readonly domSanitizer = inject(DomSanitizer);
+  protected youtubeVideos: YoutubeVideo[] | undefined = undefined;
   ngOnInit() {
+    this.getLatestVideos();
     this.changeBackgroundImage();
   }
 
-  changeBackgroundImage = (): void => this.backgroundService.setBackgroundImage('/assets/images/background_games.webp');
+  getLatestVideos(): void {
+    this.youtubeService.getLatestVideos('| Zenless Zone Zero', 8).subscribe({
+      next: (resp) => {
+        this.youtubeVideos = resp;
+      },
+    });
+  }
 
-  protected items = ['Tiradas por Version', 'Historial Tiradas', 'Anddriuu UID', 'Últimos Videos', 'Showcase']; // Lista circular de elementos
-  private centerIndex = 2; // Índice fijo donde debe aparecer el elemento "seleccionado" (el que se agranda visualmente)
+  changeBackgroundImage = (): void => this.backgroundService.setBackgroundImage('/assets/images/background_games.webp');
+  // #region ANIMATION WHEEL SECTION
+  protected items = ['Tiradas por Version', 'Historial Tiradas', 'Últimos Videos', 'Showcase']; // Lista circular de elementos
+  protected centerIndex = 0; // Índice fijo donde debe aparecer el elemento "seleccionado" (el que se agranda visualmente)
 
   // Referencia a los elementos del DOM generados por *ngFor
   @ViewChildren('itemRef') itemRefs!: QueryList<ElementRef<HTMLSpanElement>>;
@@ -83,7 +101,8 @@ export class ZzzComponent implements OnInit {
     this.animateItems();
   }
 
-  // (No se usa en este código final, puede eliminarse si no se llama en ningún lado)
+  // (No se usa en este código final, puede eliminarse si no se llama en
+  // ningún lado)
   rotateList(selectedIndex: number) {
     const steps = (selectedIndex - this.centerIndex + this.items.length) % this.items.length;
 
@@ -111,8 +130,27 @@ export class ZzzComponent implements OnInit {
   highlightCenter() {
     setTimeout(() => this.animateItems(), 0); // Esperar al renderizado
   }
+  // #endregion
+
+  getCurrentSelectedItem(): string {
+    return this.items[this.centerIndex];
+  }
 
   getUrl(url: string) {
     return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
   }
+
+  protected isCopied = false;
+  protected readonly zzzUID = ZENLESS_ZONE_ZERO_UID;
+  async onCopy() {
+    const success = await copyToClipboard(ZENLESS_ZONE_ZERO_UID);
+    if (success) {
+      this.isCopied = true;
+      setTimeout(() => (this.isCopied = false), 2000);
+    }
+  }
+
+  goToVideo = (videoId: string) => openYoutubeVideo(videoId);
+
+  openUrl = (url: string) => openUrl(url);
 }

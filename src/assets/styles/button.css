@@ -1,5 +1,6 @@
 button,
 a.anchor-button {
+  width: fit-content;
   padding: 1rem;
   cursor: pointer;
   font-weight: bold;

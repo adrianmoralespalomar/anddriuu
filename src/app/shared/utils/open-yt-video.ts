@@ -1,3 +1,5 @@
+import { openUrl } from './open-url';
+
 export function openYoutubeVideo(videoId: string): void {
-  window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+  openUrl(`https://www.youtube.com/watch?v=${videoId}`);
 }

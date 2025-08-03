@@ -8,20 +8,35 @@ main#zzz-page {
     gap: 1rem;
     justify-content: center;
     padding: 2rem;
-    img {
-      width: 20rem;
-      height: auto;
-      object-fit: contain;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      &.image-game-selected {
-        width: 30rem;
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      img {
+        width: 20rem;
+        height: 10rem;
+        object-fit: contain;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        &.image-game-selected {
+          width: 30rem;
+        }
+        &:hover {
+          transform: scale(1.2);
+          z-index: 2;
+        }
       }
-      &:hover {
-        transform: scale(1.2);
-        z-index: 2;
+      button {
+        border: 2px solid var(--color-white);
+        &:hover {
+          background-color: var(--color-black-hover);
+        }
       }
     }
+  }
+  section.uid-section {
+    display: flex;
+    justify-content: center;
   }
   section.game-section {
     display: flex;
@@ -59,7 +74,6 @@ main#zzz-page {
         width: 50rem;
       }
       div.game-section-content {
-        display: flex;
         width: 70%;
         position: absolute;
         border-radius: 3rem;
@@ -69,8 +83,70 @@ main#zzz-page {
         height: 90%;
         right: 2rem;
         background: white;
-        iframe {
+        > * {
           width: 100%;
+          position: absolute;
+          height: 100%;
+          top: 0;
+        }
+        .hidden-elemnt {
+          opacity: 0;
+        }
+        section.latest-videos-section {
+          article.videos-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            align-items: center;
+            justify-items: center;
+            gap: 3rem;
+            margin: 3rem;
+            .video-card {
+              background: var(--color-white);
+              border-radius: 1.5rem;
+              box-shadow: 10px 10px 10px #00000082;
+              color: var(--color-black);
+              cursor: pointer;
+              overflow: hidden;
+              text-align: center;
+              transition: transform 0.2s ease;
+              @media (max-width: 768px) {
+                max-width: -webkit-fill-available;
+              }
+              &:hover {
+                transform: scale(1.1);
+              }
+              img {
+                width: 100%;
+                height: 8rem;
+                object-fit: fill;
+              }
+              div.video-title-container {
+                padding: 0.5rem;
+
+                h3 {
+                  font-size: 16px;
+                  margin: 0;
+                  word-break: break-all;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 3;
+                  line-clamp: 3;
+                  -webkit-box-orient: vertical;
+                  overflow: hidden;
+                }
+              }
+            }
+          }
+          article.youtube-channel-container {
+            display: flex;
+            margin-top: 2rem;
+            justify-content: center;
+            button {
+              background-color: var(--color-red);
+              &:hover {
+                background-color: var(--color-red-hover);
+              }
+            }
+          }
         }
       }
     }
