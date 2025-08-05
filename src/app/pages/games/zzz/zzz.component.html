@@ -34,16 +34,13 @@
 
   <section class="game-section">
     <article class="game-sections-container">
-      <div class="wheel-container">
-        <span *ngFor="let item of items; let i = index" #itemRef class="wheel-item" (click)="onItemClick(item)">
-          {{ item }}
-        </span>
-      </div>
+      <app-revolver-menu [items]="menuItems" (itemSelected)="onItemSelected($event)" (itemChanged)="onItemChanged($event)" />
     </article>
     <article class="game-section-container">
       <img class="image-game-section-content" src="assets/images/ben_bigger.webp" alt="Ben Bigger" loading="lazy" />
       <div class="game-section-content">
-        <iframe id="zzz-warps-per-patch" [ngClass]="{ 'hidden-elemnt': getCurrentSelectedItem() !== 'Tiradas por Version' }" title="ZZZ Warps Per Patch" frameborder="0" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTiSx8OSyx-BZktnpT-fh_pQHjjkD8q3sp3Csy2aOI-8CV_QroqxzhhNjiCZNV4IdzhyK3xbipZn9WD/pubhtml"></iframe>
+        <app-games-content [galleryItems]="galleryItems()" [defaultImageIndex]="defaultIndex()" [externalImageIndex]="externalIndex()"> </app-games-content>
+        <!-- <iframe id="zzz-warps-per-patch" [ngClass]="{ 'hidden-elemnt': getCurrentSelectedItem() !== 'Tiradas por Version' }" title="ZZZ Warps Per Patch" frameborder="0" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTiSx8OSyx-BZktnpT-fh_pQHjjkD8q3sp3Csy2aOI-8CV_QroqxzhhNjiCZNV4IdzhyK3xbipZn9WD/pubhtml"></iframe>
         <img src="assets/images/latest_pulls_zzz.webp" [ngClass]="{ 'hidden-elemnt': getCurrentSelectedItem() !== 'Historial Tiradas' }" alt="Imagen Ultimas tiradas de Zenless Zone Zero" loading="lazy" />
         <section class="latest-videos-section" [ngClass]="{ 'hidden-elemnt': getCurrentSelectedItem() !== 'Últimos Videos' }">
           <article class="videos-container">
@@ -59,7 +56,7 @@
               <span>!No te pierdas ninguna noticia ni guías!. PINCHA AQUI 👉</span>
             </button>
           </article>
-        </section>
+        </section> -->
       </div>
     </article>
   </section>

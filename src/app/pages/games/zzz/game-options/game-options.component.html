@@ -1,0 +1,10 @@
+<div class="revolver-container">
+  <div class="revolver-guide"></div>
+  <div class="revolver-center"></div>
+  <div class="revolver-menu" #revolverMenu>
+    <div *ngFor="let item of items; let i = index" class="menu-item" [class.active]="i === currentActiveIndex" [attr.data-index]="i" [attr.data-position]="getItemPosition(i)" [style.top.px]="positions[getItemPosition(i)].top" [style.left.px]="positions[getItemPosition(i)].left" (click)="selectItem(i)">
+      <span [style.padding-left.px]="getPaddingLeft(getItemPosition(i))"> {{ item.icon }} {{ item.label }} </span>
+    </div>
+  </div>
+  <div class="instructions">Usa la rueda del ratón o haz clic en las opciones</div>
+</div>
