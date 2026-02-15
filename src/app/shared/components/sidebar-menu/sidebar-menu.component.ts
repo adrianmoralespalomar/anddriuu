@@ -1,10 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
+import { FloatingWindowService } from '../../../services/floating-window.service';
 
 interface MenuItem {
   label: string;
   icon: string;
-  submenu?: { label: string; route?: string }[];
+  submenu?: {
+    label: string;
+    route?: string;
+    url?: string;
+    windowTitle?: string;
+  }[];
 }
 
 @Component({
@@ -24,7 +30,11 @@ export class SidebarMenuComponent {
       icon: '⚔️',
       submenu: [
         { label: 'Ratio tiradas', route: '/zzz/ratio' },
-        { label: 'Contador de Pulls', route: '/zzz/pulls' },
+        {
+          label: 'Contador de Pulls',
+          url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTiSx8OSyx-BZktnpT-fh_pQHjjkD8q3sp3Csy2aOI-8CV_QroqxzhhNjiCZNV4IdzhyK3xbipZn9WD/pubhtml',
+          windowTitle: 'ZZZ - Tiradas por versión',
+        },
         { label: 'Personajes', route: '/zzz/characters' },
       ],
     },
@@ -43,6 +53,8 @@ export class SidebarMenuComponent {
     },
   ];
 
+  constructor(private floatingWindowService: FloatingWindowService) {}
+
   toggleSidebar(): void {
     this.isOpen.set(!this.isOpen());
   }
@@ -56,5 +68,16 @@ export class SidebarMenuComponent {
 
   isSubmenuExpanded(label: string): boolean {
     return this.expandedMenus()[label] || false;
+  }
+
+  onSubmenuItemClick(item: { label: string; route?: string; url?: string; windowTitle?: string }): void {
+    if (item.url) {
+      // Abrir ventana flotante
+      this.floatingWindowService.openWindow(item.windowTitle || item.label, item.url);
+      this.isOpen.set(false); // Cerrar sidebar después de abrir la ventana
+    } else if (item.route) {
+      // Navegar a la ruta (implementar con Router si es necesario)
+      console.log('Navegar a:', item.route);
+    }
   }
 }

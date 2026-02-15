@@ -1,6 +1,10 @@
 # Pagina web de Anddriuu
 
-De momento, todos los cambios lo haremos dentro de la carpeta "src/app/pages/youtuber"
+Version de Angular 18
+
+- Debe usar la sintaxis nueva de @if, los signals etc.
+
+- De momento, todos los cambios lo haremos dentro de la carpeta "src/app/pages/youtuber"
 
 # Info
 

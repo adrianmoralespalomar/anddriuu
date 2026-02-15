@@ -1,0 +1,15 @@
+<div class="floating-window">
+  <!-- Header draggable -->
+  <div class="window-header" (mousedown)="onMouseDownHeader($event)">
+    <span class="window-title">{{ window.title }}</span>
+    <button type="button" class="close-btn" (mousedown)="$event.stopPropagation()" (click)="closeWindow()" aria-label="Close window">✕</button>
+  </div>
+
+  <!-- Content -->
+  <div class="window-content">
+    <iframe [src]="window.url | safe" frameborder="0"></iframe>
+  </div>
+
+  <!-- Resize handle -->
+  <div class="resize-handle" (mousedown)="onMouseDownResize($event)"></div>
+</div>

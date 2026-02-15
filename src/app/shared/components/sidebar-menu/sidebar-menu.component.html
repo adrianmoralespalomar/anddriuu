@@ -23,7 +23,10 @@
         <!-- Submenu -->
         <ul *ngIf="item.submenu && isSubmenuExpanded(item.label)" class="submenu">
           <li *ngFor="let subitem of item.submenu" class="submenu-item">
-            <a [href]="subitem.route" class="submenu-link">
+            <button *ngIf="subitem.url" (click)="onSubmenuItemClick(subitem)" class="submenu-link">
+              {{ subitem.label }}
+            </button>
+            <a *ngIf="!subitem.url" [href]="subitem.route" class="submenu-link">
               {{ subitem.label }}
             </a>
           </li>

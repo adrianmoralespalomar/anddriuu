@@ -7,3 +7,8 @@
   <app-about-section></app-about-section>
   <app-newsletter></app-newsletter>
 </div>
+
+<!-- Floating Windows -->
+<ng-container *ngFor="let window of floatingWindowService.windows()">
+  <app-floating-window *ngIf="window.isOpen" [window]="window"></app-floating-window>
+</ng-container>
