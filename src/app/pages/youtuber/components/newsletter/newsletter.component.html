@@ -1,0 +1,32 @@
+<section class="newsletter-section">
+  <div class="newsletter-container">
+    <div class="newsletter-content">
+      <div class="newsletter-header">
+        <h2 class="newsletter-title">Sígueme en Redes Sociales</h2>
+        <p class="newsletter-subtitle">Mantente conectado con la comunidad de Anddriuu. Streams en vivo, videos, memes y más</p>
+      </div>
+
+      <div class="social-links-grid">
+        <a *ngFor="let link of socialLinks" [href]="link.url" target="_blank" rel="noopener" class="social-link" [style.--social-color]="link.color" (click)="onSocialClick(link.url)">
+          <span class="social-icon">{{ link.icon }}</span>
+          <span class="social-name">{{ link.name }}</span>
+        </a>
+      </div>
+
+      <div class="social-features">
+        <div class="feature-item">
+          <span class="feature-icon">🎮</span>
+          <span class="feature-text">Stream en Vivo</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">📸</span>
+          <span class="feature-text">Contenido Diario</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">👥</span>
+          <span class="feature-text">Comunidad Activa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

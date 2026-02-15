@@ -9,6 +9,10 @@ export const ROUTES: Routes = [
     loadComponent: () => import('./pages/home/home.component').then((x) => x.HomeComponent),
   },
   {
+    path: 'a',
+    loadComponent: () => import('./pages/youtuber/youtuber.component').then((x) => x.YoutuberComponent),
+  },
+  {
     title: `${GENERAL_TITLE} | Zenless Zone Zero`,
     path: ROUTES_PATHS.ZENLESS_ZONE_ZERO,
     loadComponent: () => import('./pages/games/zzz-old/zzz.component').then((x) => x.ZzzComponent),

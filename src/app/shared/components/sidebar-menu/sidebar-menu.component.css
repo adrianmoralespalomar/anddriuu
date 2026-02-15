@@ -1,0 +1,229 @@
+/* Sidebar Container */
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 280px;
+  background: linear-gradient(135deg, #163fcf 0%, #0f0f0f 100%);
+  border-left: 2px solid #b151f3;
+  z-index: 997;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+  padding-top: 60px;
+  box-shadow: -2px 0 20px rgba(177, 81, 243, 0.3);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  z-index: 996;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar-overlay.open {
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+  opacity: 1;
+}
+
+/* Toggle Button */
+.sidebar-toggle {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #b151f3 0%, #66c7ce 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(177, 81, 243, 0.5);
+}
+
+.sidebar-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(177, 81, 243, 0.7);
+}
+
+.toggle-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.toggle-icon .line {
+  width: 24px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar-toggle[aria-expanded="true"] .toggle-icon .line:nth-child(1) {
+  transform: rotate(45deg) translateY(15px);
+}
+
+.sidebar-toggle[aria-expanded="true"] .toggle-icon .line:nth-child(2) {
+  opacity: 0;
+}
+
+.sidebar-toggle[aria-expanded="true"] .toggle-icon .line:nth-child(3) {
+  transform: rotate(-45deg) translateY(-15px);
+}
+
+/* Navigation */
+.sidebar-nav {
+  padding: 20px 0;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  border-bottom: 1px solid rgba(102, 199, 206, 0.1);
+}
+
+/* Menu Button */
+.menu-button {
+  width: 100%;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.menu-button:hover {
+  background: rgba(177, 81, 243, 0.2);
+  padding-left: 24px;
+}
+
+.menu-button.expanded {
+  background: rgba(102, 199, 206, 0.1);
+  color: #66c7ce;
+}
+
+.menu-icon {
+  font-size: 20px;
+  min-width: 24px;
+}
+
+.menu-label {
+  flex: 1;
+}
+
+.chevron {
+  font-size: 20px;
+  transition: transform 0.3s ease-in-out;
+  transform: rotate(0deg);
+}
+
+.menu-button.expanded .chevron {
+  transform: rotate(90deg);
+}
+
+/* Submenu */
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.3);
+  max-height: 500px;
+  overflow: hidden;
+  animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+.submenu-item {
+  border-bottom: 1px solid rgba(102, 199, 206, 0.05);
+}
+
+.submenu-link {
+  display: block;
+  padding: 12px 40px;
+  color: #66c7ce;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  font-size: 14px;
+}
+
+.submenu-link:hover {
+  color: #fff;
+  background: rgba(102, 199, 206, 0.1);
+  padding-left: 48px;
+}
+
+/* Scrollbar */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: rgba(102, 199, 206, 0.05);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(177, 81, 243, 0.5);
+  border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(177, 81, 243, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 250px;
+  }
+
+  .sidebar-toggle {
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .toggle-icon .line {
+    width: 20px;
+    height: 2.5px;
+  }
+}

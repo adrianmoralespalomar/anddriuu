@@ -1,0 +1,34 @@
+<!-- Toggle Button -->
+<button class="sidebar-toggle" (click)="toggleSidebar()" [attr.aria-expanded]="isOpen()" aria-label="Toggle menu">
+  <span class="toggle-icon">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </span>
+</button>
+
+<div class="sidebar-overlay" [class.open]="isOpen()" (click)="toggleSidebar()"></div>
+
+<aside class="sidebar" [class.open]="isOpen()">
+  <!-- Menu Items -->
+  <nav class="sidebar-nav">
+    <ul class="menu-list">
+      <li *ngFor="let item of menuItems" class="menu-item">
+        <button class="menu-button" (click)="toggleSubmenu(item.label)" [class.expanded]="isSubmenuExpanded(item.label)">
+          <span class="menu-icon">{{ item.icon }}</span>
+          <span class="menu-label">{{ item.label }}</span>
+          <span *ngIf="item.submenu" class="chevron">›</span>
+        </button>
+
+        <!-- Submenu -->
+        <ul *ngIf="item.submenu && isSubmenuExpanded(item.label)" class="submenu">
+          <li *ngFor="let subitem of item.submenu" class="submenu-item">
+            <a [href]="subitem.route" class="submenu-link">
+              {{ subitem.label }}
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</aside>

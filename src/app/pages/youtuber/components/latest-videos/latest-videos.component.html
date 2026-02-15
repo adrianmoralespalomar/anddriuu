@@ -1,0 +1,39 @@
+<section class="latest-videos-section">
+  <div class="section-container">
+    <div class="section-header">
+      <h2 class="section-title">Últimos Videos</h2>
+      <p class="section-subtitle">Mira nuestros últimos videos de reviews, gameplays y análisis de gacha games</p>
+    </div>
+
+    <div class="videos-grid">
+      <div class="video-card" *ngFor="let video of videos">
+        <div class="video-thumbnail">
+          <img [src]="video.thumbnail" [alt]="video.title" class="thumbnail-image" />
+          <div class="video-overlay">
+            <button class="play-button" (click)="onWatchClick(video.id)">▶</button>
+            <span class="video-duration">{{ video.duration }}</span>
+          </div>
+        </div>
+
+        <div class="video-info">
+          <h3 class="video-title">{{ video.title }}</h3>
+          <p class="video-description">{{ video.description }}</p>
+
+          <div class="video-meta">
+            <span class="meta-item"> <span class="meta-icon">👁️</span> {{ video.views }} </span>
+            <span class="meta-item"> <span class="meta-icon">📅</span> {{ video.date }} </span>
+          </div>
+
+          <button class="watch-btn" (click)="onWatchClick(video.id)">Ver en YouTube</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="view-all-container">
+      <a href="https://www.youtube.com/channel/UCpP1Ki0BltI_ecCXWVus_nA" target="_blank" class="view-all-btn">
+        Ver Todos los Videos
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>

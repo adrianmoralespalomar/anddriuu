@@ -10,7 +10,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
   standalone: true,
   imports: [HeaderComponent, RouterOutlet, CommonModule],
   template: `
-    <gooner-header />
+    <!-- <gooner-header /> -->
     <div class="parallax-bg" [ngStyle]="{ 'background-image': backgrounImage() ? 'url(' + backgrounImage() + ')' : 'none' }"></div>
     <main class="main-content">
       <router-outlet />

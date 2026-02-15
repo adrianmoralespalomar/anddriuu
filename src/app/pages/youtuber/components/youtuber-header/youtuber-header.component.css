@@ -1,0 +1,124 @@
+/* Header Container */
+.youtuber-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  border-bottom: 2px solid #b151f3;
+  z-index: 900;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 20px rgba(177, 81, 243, 0.2);
+}
+
+.youtuber-header.visible {
+  transform: translateY(0);
+}
+
+/* Header Content */
+.header-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 180px 0 30px;
+  gap: 20px;
+  max-width: 100%;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  min-width: 50px;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Title */
+.header-title {
+  font-size: 18px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #b151f3, #66c7ce);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  flex: 1;
+  white-space: nowrap;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  position: relative;
+  z-index: 1001;
+  margin-right: 10rem;
+}
+
+.social-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #b151f3, #66c7ce);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  flex-shrink: 0;
+  font-size: 18px;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+.social-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(177, 81, 243, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0 15px;
+    gap: 15px;
+  }
+
+  .logo img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .header-title {
+    font-size: 14px;
+  }
+
+  .social-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-links {
+    gap: 8px;
+  }
+
+  .social-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+}
