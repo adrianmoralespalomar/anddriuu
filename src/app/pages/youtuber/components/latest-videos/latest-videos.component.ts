@@ -7,9 +7,9 @@ interface Video {
   title: string;
   description: string;
   thumbnail: string;
-  views: string;
+  views?: string;
   date: string;
-  duration: string;
+  duration?: string;
 }
 
 @Component({
@@ -17,7 +17,7 @@ interface Video {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './latest-videos.component.html',
-  styleUrl: './latest-videos.component.css',
+  styleUrls: ['./latest-videos.component.css'],
 })
 export class LatestVideosComponent implements OnInit {
   videos: Video[] = [];
@@ -25,10 +25,14 @@ export class LatestVideosComponent implements OnInit {
   constructor(private youtuberService: YoutuberService) {}
 
   ngOnInit(): void {
-    this.videos = this.youtuberService.getLatestVideos();
+    this.youtuberService.getLatestVideos().subscribe((v) => (this.videos = v));
   }
 
   onWatchClick(videoId: string): void {
     window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+  }
+
+  trackById(_index: number, item: Video) {
+    return item.id;
   }
 }

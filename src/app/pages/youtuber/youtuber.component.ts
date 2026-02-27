@@ -1,21 +1,31 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { FloatingWindowService } from '../../services/floating-window.service';
 import { FloatingWindowComponent } from '../../shared/components/floating-window/floating-window.component';
 import { SidebarMenuComponent } from '../../shared/components/sidebar-menu/sidebar-menu.component';
-import { AboutSectionComponent } from './components/about-section/about-section.component';
-import { HeroSectionComponent } from './components/hero-section/hero-section.component';
+import { IntroSectionComponent } from './components/intro-section/intro-section.component';
 import { LatestVideosComponent } from './components/latest-videos/latest-videos.component';
-import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { YouTuberHeaderComponent } from './components/youtuber-header/youtuber-header.component';
 
 @Component({
   selector: 'app-youtuber',
   standalone: true,
-  imports: [CommonModule, HeroSectionComponent, LatestVideosComponent, AboutSectionComponent, NewsletterComponent, SidebarMenuComponent, YouTuberHeaderComponent, FloatingWindowComponent],
+  imports: [CommonModule, IntroSectionComponent, LatestVideosComponent, SidebarMenuComponent, YouTuberHeaderComponent, FloatingWindowComponent],
   templateUrl: './youtuber.component.html',
   styleUrl: './youtuber.component.css',
 })
 export class YoutuberComponent {
-  constructor(public floatingWindowService: FloatingWindowService) {}
+  showScrollButton = false;
+
+  public floatingWindowService = inject(FloatingWindowService);
+
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    const scrollPos = window.pageYOffset || document.documentElement.scrollTop || 0;
+    this.showScrollButton = scrollPos > 240; // show after some scrolling
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

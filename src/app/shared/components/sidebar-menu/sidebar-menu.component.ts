@@ -27,29 +27,34 @@ export class SidebarMenuComponent {
   menuItems: MenuItem[] = [
     {
       label: 'Zenless Zone Zero',
-      icon: '⚔️',
+      icon: 'assets/images/logo_zzz.webp',
       submenu: [
-        { label: 'Ratio tiradas', route: '/zzz/ratio' },
         {
           label: 'Contador de Pulls',
           url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTiSx8OSyx-BZktnpT-fh_pQHjjkD8q3sp3Csy2aOI-8CV_QroqxzhhNjiCZNV4IdzhyK3xbipZn9WD/pubhtml',
           windowTitle: 'ZZZ - Tiradas por versión',
         },
+        { label: 'Ratio tiradas', url: 'https://zzz.rng.moe/en/profile?uid=1502704289#leaderboard', windowTitle: 'ZZZ - Ratio tiradas' },
         { label: 'Personajes', route: '/zzz/characters' },
       ],
     },
     {
       label: 'Honkai Star Rail',
-      icon: '✨',
+      icon: 'assets/images/logo_hsr.webp',
       submenu: [
-        { label: 'Ratio tiradas', route: '/hsr/ratio' },
+        { label: 'Ratio tiradas', url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRIWjzFwAZZoBvKw2oiNaVpppI9atoV0wxuOjulKRJECrg_BN404d7LoKlHp8RMX8hegDr4b8jlHjYy/pubhtml', windowTitle: 'HSR - Ratio tiradas' },
         { label: 'Contador de Pulls', route: '/hsr/pulls' },
       ],
     },
     {
       label: 'Genshin Impact',
-      icon: '🌙',
+      icon: 'assets/images/logo_genshin.webp',
       submenu: [{ label: 'Ratio tiradas', route: '/genshin/ratio' }],
+    },
+    {
+      label: 'Global',
+      icon: '🌍',
+      submenu: [{ label: 'Google Trends', url: 'https://trends.google.com/trends/explore?q=%2Fg%2F11hznck6gj,%2Fg%2F11rd9xm264,%2Fg%2F11kh_kz88w,%2Fg%2F11szcscg6q,%2Fg%2F11rv72rxkb&hl=en-GB&legacy', windowTitle: 'Global - Google Trends' }],
     },
   ];
 

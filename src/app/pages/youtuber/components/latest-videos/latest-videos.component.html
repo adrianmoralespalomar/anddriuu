@@ -6,7 +6,7 @@
     </div>
 
     <div class="videos-grid">
-      <div class="video-card" *ngFor="let video of videos">
+      <div *ngFor="let video of videos; trackBy: trackById" class="video-card">
         <div class="video-thumbnail">
           <img [src]="video.thumbnail" [alt]="video.title" class="thumbnail-image" />
           <div class="video-overlay">

@@ -1,0 +1,403 @@
+/* ------------------------------------
+   Intro Section — Structured CSS
+   Organized by: Layout → Background → Content → Title → Socials → Indicators → Animations → Responsive
+   ------------------------------------ */
+
+/* Layout */
+.intro-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Background wrapper */
+.intro-background {
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Background image - lifted so star/face alignments work */
+.intro-image {
+  position: absolute;
+  top: -30%; /* lifted on desktop to align star under icons */
+  left: 0;
+  width: 100%;
+  height: 160%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  z-index: 1;
+  will-change: transform;
+}
+
+/* Gradient overlay to darken edges and add vignette */
+.gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0.06) 0%, rgba(45, 45, 45, 0.12) 35%, rgba(26, 26, 26, 0.28) 60%, rgba(15, 15, 15, 0.6) 100%), radial-gradient(circle at 50% 40%, rgba(177, 81, 243, 0.035) 0%, transparent 65%);
+  z-index: 2;
+  backdrop-filter: blur(1px);
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    right: 0;
+    height: 140px;
+    background: linear-gradient(to bottom, rgba(15, 15, 15, 0) 0%, rgba(15, 15, 15, 0.25) 50%, rgba(15, 15, 15, 0.55) 100%);
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+/* Content wrapper */
+.intro-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 600px;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  animation: fadeInUp 1s ease-out;
+  transition: opacity 0.1s linear;
+  top: 14rem;
+}
+
+/* Logo container */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: slideDown 0.8s ease-out;
+
+  & img {
+    width: 18rem;
+    height: 18rem;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 8px 32px rgba(177, 81, 243, 0.4);
+  }
+}
+
+/* Title */
+.intro-title {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  border-radius: 0;
+  margin: 0;
+  -webkit-text-stroke: 0.3px #661ea7;
+  background: linear-gradient(90deg, #b151f3 0%, #8f99f2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(177, 81, 243, 0.18);
+  font-size: 80px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 4px;
+  outline: 2px solid transparent;
+  outline-offset: 4px;
+  animation: slideDown 1s ease-out;
+  transition: transform 0.25s ease;
+}
+
+/* Social links (row of round buttons) */
+.social-links-intro {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: nowrap; /* keep as single row on larger screens */
+  padding: 0 12px; /* prevent touching viewport edges */
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.25s ease;
+  animation: slideDown 1s ease-out 0.2s both;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(177, 81, 243, 0.2) 0%, rgba(102, 199, 206, 0.2) 100%);
+  border: 2px solid rgba(177, 81, 243, 0.8);
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(177, 81, 243, 0.2);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  & aesy-svg {
+    width: 40px;
+    height: 40px;
+    display: block;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+  }
+
+  &:hover {
+    transform: translateY(-8px) scale(1.1);
+    border-color: #66c7ce;
+    box-shadow:
+      0 20px 50px rgba(177, 81, 243, 0.5),
+      0 0 20px rgba(102, 199, 206, 0.3);
+    background: linear-gradient(135deg, rgba(177, 81, 243, 0.4) 0%, rgba(102, 199, 206, 0.4) 100%);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  & span {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Scroll indicator */
+.intro-scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #888;
+  animation: bounce 2s infinite;
+  z-index: 3;
+}
+
+.scroll-text {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  background: linear-gradient(90deg, #b151f3 0%, #77add6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(177, 81, 243, 0.18);
+  transform-origin: center;
+  animation: floatText 2.2s ease-in-out infinite;
+}
+
+.scroll-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-arrow-icon {
+  width: 20px;
+  height: 20px;
+  color: #b151f3;
+  transform-origin: center;
+  animation: bounceDown 1.6s ease-in-out infinite;
+}
+
+@keyframes floatText {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 0.95;
+  }
+}
+
+@keyframes bounceDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .intro-section {
+    min-height: 90vh;
+  }
+
+  .intro-content {
+    padding: 40px 20px;
+    gap: 40px;
+  }
+
+  /* background image: less lift on medium screens */
+  .intro-image {
+    top: -22%;
+    object-position: 50% 16%;
+  }
+
+  /* move icons and lower the title slightly on tablet */
+  .social-links-intro {
+    transform: translateY(-30px);
+    gap: 14px;
+    padding: 0 16px;
+  }
+  .social-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+  .intro-title {
+    transform: translateY(8px);
+    font-size: 56px;
+    letter-spacing: 2px;
+    text-shadow:
+      2px 2px 0 var(--color-black),
+      4px 4px 0 var(--color-purple),
+      0 1px 0 var(--color-white),
+      0 6px 12px rgba(0, 0, 0, 0.35),
+      0 0 10px var(--color-yellow-semi-transparent);
+    -webkit-text-stroke: 1.5px var(--color-black);
+  }
+
+  .intro-scroll-indicator {
+    bottom: 20px;
+  }
+
+  .scroll-text {
+    font-size: 16px;
+  }
+  .scroll-arrow-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-section {
+    min-height: 80vh;
+  }
+
+  .intro-content {
+    padding: 30px 15px;
+    gap: 30px;
+  }
+
+  /* Mobile: reduce image lift to avoid heavy cropping */
+  .intro-image {
+    top: -10%;
+    object-position: 50% 12%;
+  }
+
+  /* keep icons closer to title and allow wrap on very small screens */
+  .social-links-intro {
+    transform: translateY(-16px);
+    gap: 12px;
+    padding: 0 18px;
+    flex-wrap: wrap;
+  }
+  .social-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .intro-title {
+    transform: translateY(6px);
+    font-size: 40px;
+    letter-spacing: 1px;
+    text-shadow:
+      1.5px 1.5px 0 var(--color-black),
+      3px 3px 0 var(--color-purple),
+      0 1px 0 var(--color-white),
+      0 4px 8px rgba(0, 0, 0, 0.28),
+      0 0 6px var(--color-yellow-semi-transparent);
+    -webkit-text-stroke: 1px var(--color-black);
+  }
+
+  .scroll-arrow {
+    font-size: 20px;
+  }
+
+  .scroll-text {
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .scroll-arrow-icon {
+    width: 16px;
+    height: 16px;
+  }
+}

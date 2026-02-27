@@ -1,0 +1,11 @@
+<div class="social-content">
+  <h2 class="section-title">Connect</h2>
+  <div class="social-links">
+    @for (social of socialLinks; track social.name) {
+      <button class="social-link" (click)="openLink(social.url)" [style.--social-color]="social.color" [style.--social-hover]="social.hoverColor">
+        <span class="social-icon">{{ social.icon }}</span>
+        <span class="social-name">{{ social.name }}</span>
+      </button>
+    }
+  </div>
+</div>

@@ -2,13 +2,18 @@
 <app-youtuber-header></app-youtuber-header>
 
 <div class="youtuber-container">
-  <app-hero-section></app-hero-section>
+  <app-intro-section></app-intro-section>
   <app-latest-videos></app-latest-videos>
-  <app-about-section></app-about-section>
-  <app-newsletter></app-newsletter>
 </div>
 
 <!-- Floating Windows -->
-<ng-container *ngFor="let window of floatingWindowService.windows()">
-  <app-floating-window *ngIf="window.isOpen" [window]="window"></app-floating-window>
-</ng-container>
+@for (window of floatingWindowService.windows(); track window.id) {
+  @if (window.isOpen) {
+    <app-floating-window [window]="window"></app-floating-window>
+  }
+}
+
+<!-- Scroll to top button (appears after scrolling) -->
+<button class="scroll-to-top" (click)="scrollToTop()" [class.visible]="showScrollButton" aria-label="Volver arriba">
+  <span class="arrow">↑</span>
+</button>

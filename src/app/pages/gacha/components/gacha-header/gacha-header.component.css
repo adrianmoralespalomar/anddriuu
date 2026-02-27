@@ -1,0 +1,110 @@
+/* Header for gacha page (copied from youtuber) */
+.gacha-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: rgba(26, 26, 26, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(107, 42, 158, 0.3);
+  z-index: 900;
+  transition:
+    background 0.3s,
+    border-color 0.3s;
+}
+
+.gacha-header.visible {
+  background: rgba(15, 15, 15, 0.95);
+  border-bottom-color: rgba(107, 42, 158, 0.5);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  gap: 2rem;
+  height: 100%;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.header-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* Options + submenu */
+.options {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+.option {
+  position: relative;
+}
+.option-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(107, 42, 158, 0.3);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: all 0.2s;
+}
+.option-btn:hover {
+  background: rgba(107, 42, 158, 0.2);
+  border-color: #6b2a9e;
+}
+.submenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(107, 42, 158, 0.3);
+  padding: 8px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1002;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  min-width: 180px;
+}
+.submenu-item {
+  background: transparent;
+  color: #fff;
+  border: none;
+  text-align: left;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+.submenu-item:hover {
+  background: rgba(107, 42, 158, 0.2);
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    width: 40px;
+    height: 40px;
+  }
+  .header-title {
+    font-size: 14px;
+  }
+}

@@ -5,7 +5,7 @@
   top: 0;
   height: 100vh;
   width: 280px;
-  background: linear-gradient(135deg, #163fcf 0%, #0f0f0f 100%);
+  background: linear-gradient(135deg, #1a1335 0%, #0f0f0f 100%);
   border-left: 2px solid #b151f3;
   z-index: 997;
   transform: translateX(100%);
@@ -107,7 +107,7 @@
 /* Menu Button */
 .menu-button {
   width: 100%;
-  padding: 16px 20px;
+  padding: 12px 20px;
   background: none;
   border: none;
   color: #fff;
@@ -132,8 +132,18 @@
 }
 
 .menu-icon {
-  font-size: 20px;
-  min-width: 24px;
+  font-size: 32px;
+  min-width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon .game-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: 6px;
 }
 
 .menu-label {

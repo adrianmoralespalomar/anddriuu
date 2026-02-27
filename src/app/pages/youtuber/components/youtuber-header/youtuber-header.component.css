@@ -24,7 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 180px 0 30px;
+  padding: 0 110px 0 20px; /* reserve space on right for sidebar toggle */
   gap: 20px;
   max-width: 100%;
 }
@@ -59,33 +59,46 @@
 .social-links {
   display: flex;
   gap: 12px;
+  justify-content: center;
   align-items: center;
   position: relative;
   z-index: 1001;
-  margin-right: 10rem;
+  margin-right: 6rem;
+  padding: 0 10px; /* prevent touching viewport edges like intro */
 }
 
 .social-btn {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #b151f3, #66c7ce);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  flex-shrink: 0;
-  font-size: 18px;
+  width: 48px; /* reduced size to be less prominent */
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(177, 81, 243, 0.14) 0%, rgba(102, 199, 206, 0.14) 100%);
+  border: 2px solid rgba(177, 81, 243, 0.8);
   color: white;
-  border: none;
-  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(177, 81, 243, 0.1);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* shrink the SVG inside the round button while keeping the ring */
+.social-btn aesy-svg {
+  width: 28px; /* slightly smaller icon line like intro */
+  height: 28px;
+  display: block;
 }
 
 .social-btn:hover {
-  transform: scale(1.15);
-  box-shadow: 0 4px 12px rgba(177, 81, 243, 0.6);
+  transform: translateY(-4px) scale(1.03);
+  border-color: #66c7ce;
+  box-shadow: 0 12px 28px rgba(177, 81, 243, 0.28);
+  background: linear-gradient(135deg, rgba(177, 81, 243, 0.28) 0%, rgba(102, 199, 206, 0.28) 100%);
 }
 
 /* Responsive */
@@ -105,9 +118,9 @@
   }
 
   .social-btn {
-    width: 28px;
-    height: 28px;
-    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
   }
 }
 
@@ -118,12 +131,12 @@
   }
 
   .social-links {
-    gap: 6px;
+    gap: 8px;
   }
 
   .social-btn {
-    width: 24px;
-    height: 24px;
-    font-size: 14px;
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
   }
 }

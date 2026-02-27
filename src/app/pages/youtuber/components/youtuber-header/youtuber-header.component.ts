@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, signal } from '@angular/core';
+import { SvgComponent } from '../../../../shared/components/svg/svg.component';
 
 @Component({
   selector: 'app-youtuber-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SvgComponent],
   templateUrl: './youtuber-header.component.html',
   styleUrl: './youtuber-header.component.css',
 })

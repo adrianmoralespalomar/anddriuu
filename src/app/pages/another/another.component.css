@@ -1,0 +1,157 @@
+.bento-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  padding: 3rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, 100px);
+  gap: 1.5rem;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.bento-item {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.bento-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(181, 81, 243, 0.05) 0%, rgba(102, 199, 206, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.bento-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(181, 81, 243, 0.5);
+  box-shadow: 0 20px 60px rgba(181, 81, 243, 0.2);
+}
+
+.bento-item:hover::before {
+  opacity: 1;
+}
+
+/* Hero - Central large card */
+.bento-hero {
+  grid-column: 4 / 10;
+  grid-row: 2 / 7;
+  z-index: 2;
+}
+
+/* Videos - Top right */
+.bento-videos {
+  grid-column: 10 / 13;
+  grid-row: 1 / 5;
+}
+
+/* Social - Left side */
+.bento-social {
+  grid-column: 1 / 4;
+  grid-row: 1 / 6;
+}
+
+/* Stats - Bottom right */
+.bento-stats {
+  grid-column: 10 / 13;
+  grid-row: 5 / 9;
+}
+
+/* About - Bottom left */
+.bento-about {
+  grid-column: 1 / 10;
+  grid-row: 7 / 9;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+  .bento-grid {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(12, 100px);
+  }
+
+  .bento-hero {
+    grid-column: 2 / 8;
+    grid-row: 2 / 7;
+  }
+
+  .bento-videos {
+    grid-column: 1 / 9;
+    grid-row: 7 / 10;
+  }
+
+  .bento-social {
+    grid-column: 1 / 5;
+    grid-row: 1 / 3;
+  }
+
+  .bento-stats {
+    grid-column: 5 / 9;
+    grid-row: 1 / 3;
+  }
+
+  .bento-about {
+    grid-column: 1 / 9;
+    grid-row: 10 / 13;
+  }
+}
+
+@media (max-width: 768px) {
+  .bento-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+  }
+
+  .bento-hero {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 400px;
+  }
+
+  .bento-videos {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 300px;
+  }
+
+  .bento-social {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 250px;
+  }
+
+  .bento-stats {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 200px;
+  }
+
+  .bento-about {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 150px;
+  }
+}

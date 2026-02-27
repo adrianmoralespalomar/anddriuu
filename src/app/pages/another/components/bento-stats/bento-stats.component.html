@@ -1,0 +1,17 @@
+<div class="stats-content">
+  <h2 class="section-title">Stats</h2>
+  <div class="stats-grid">
+    @for (stat of stats(); track stat.label) {
+      <div class="stat-card">
+        <div class="stat-icon">{{ stat.icon }}</div>
+        <div class="stat-info">
+          <div class="stat-value">{{ stat.value }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+          @if (stat.trend) {
+            <div class="stat-trend">{{ stat.trend }}</div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>

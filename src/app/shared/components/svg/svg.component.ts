@@ -15,6 +15,8 @@ import { Component, computed, Input } from '@angular/core';
         height: auto;
         display: block;
         color: inherit;
+        fill: currentColor;
+        stroke: currentColor;
       }
     `,
   ],

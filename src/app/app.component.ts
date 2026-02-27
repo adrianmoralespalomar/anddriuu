@@ -3,12 +3,11 @@ import { Component, computed, HostListener, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ROUTES_PATHS } from 'src/app/shared/constants/routes.route';
 import { BackgroundService } from './services/background.service';
-import { HeaderComponent } from './shared/components/header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule],
   template: `
     <!-- <gooner-header /> -->
     <div class="parallax-bg" [ngStyle]="{ 'background-image': backgrounImage() ? 'url(' + backgrounImage() + ')' : 'none' }"></div>

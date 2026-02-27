@@ -1,0 +1,13 @@
+<div class="about-content">
+  <div class="about-text">
+    <p class="description">{{ description }}</p>
+  </div>
+  <div class="highlights">
+    @for (highlight of highlights; track highlight.text) {
+      <div class="highlight-item">
+        <span class="highlight-icon">{{ highlight.icon }}</span>
+        <span class="highlight-text">{{ highlight.text }}</span>
+      </div>
+    }
+  </div>
+</div>
